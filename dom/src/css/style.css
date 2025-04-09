@@ -1,0 +1,28 @@
+body {
+    color: #999;
+}
+
+.game-field {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    width: fit-content;
+    margin: auto;
+}
+
+.game-field div {
+    border: 1px solid #000;
+    height: 100px;
+    position: relative;
+}
+
+.character {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+}
