@@ -1,5 +1,14 @@
 const gameField = document.querySelector('.game-field');
 
+function createGameField() {
+    for (let i = 0; i < 4; i++) {
+        for(let j = 0; j < 4; j++) {
+            const cell = document.createElement('div');
+            gameField.appendChild(cell);
+        }
+    }
+}
+
 function getRandomEmptyCell() {
     const cells = Array.from(gameField.children).filter(cell => !cell.contains(document.querySelector('.character')));
     return cells[Math.floor(Math.random() * cells.length)];
@@ -29,6 +38,7 @@ setInterval(() => {
 }, 2000);
 
 document.addEventListener('DOMContentLoaded', () => {
+    createGameField()
     const initialCell = getRandomEmptyCell();
     moveCharacter(initialCell);
 });

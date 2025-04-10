@@ -1,4 +1,4 @@
-const moviesData = [
+const moviesData1 = [
     {
         "id": 26,
         "title": "Побег из Шоушенка",
@@ -32,8 +32,8 @@ const moviesData = [
 ]
 
 document.addEventListener("DOMContentLoaded", () => {
-    const tableBody = document.querySelector('table tbody')
-    const headers = document.querySelectorAll('table thead th');
+    const tableBody = document.querySelector('#movies-table tbody')
+    const headers = document.querySelectorAll('#movies-table thead th');
 
     function createElement(movie) {
         const row = document.createElement('tr')
@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
         row.dataset.imdb = movie.imdb.toFixed(2)
 
         const cells = [
-            `<td>${movie.id}</td>`
-            `<td>${movie.title}</td>`
-            `<td>(${movie.year})</td>`
+            `<td>${movie.id}</td>`,
+            `<td>${movie.title}</td>`,
+            `<td>(${movie.year})</td>`,
             `<td>imdb: ${movie.imdb.toFixed(2)}</td>`
         ]
 
@@ -54,14 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return row
     }
 
-    moviesData.forEach(movie => {
+    moviesData1.forEach(movie => {
         const row = createElement(movie);
         tableBody.appendChild(row);
     });
 
     function sortRows() {
-        const rows = Array.from(document.querySelectorAll('tbody tr'));
-        let currentSortField = 'id';
+        const rows = Array.from(document.querySelectorAll('#movies-table tbody tr'));
+        let currentSortField;
         let currentSortDirection = 'asc';
 
         headers.forEach(th => {
@@ -85,4 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+    sortRows();
 })

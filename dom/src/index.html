@@ -7,27 +7,35 @@
     <title>Игровое Поле</title>
 </head>
 <body>
-<div class="game-field">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+<div class="game-field"></div>
+<h1>Data-sort</h1>
+<table id="movies-table">
+    <thead>
+      <tr>
+        <th data-sort-by="id">ID</th>
+        <th data-sort-by="title">Название</th>
+        <th data-sort-by="year">Год</th>
+        <th data-sort-by="imdb">IMDb</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-</div>
+<h1>Без Data-sort</h1>
+<table id="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Год</th>
+        <th>IMDb</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script src="./js/sortWithDataAtributes.js"></script>
+<script src="./js/sort.js"></script>
 <script src="./js/script.js"></script>
 </body>
 </html>
