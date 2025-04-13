@@ -1,24 +1,17 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   target: 'web',
-  devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, '/dist'),
-    open: true,
-    compress: true,
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(?:js|ts)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -33,11 +26,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader, 'css-loader',
-        ],
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+      }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      }
     ],
   },
   plugins: [
@@ -46,9 +48,8 @@ module.exports = {
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: 'style.css',
+      chunkFilename: 'style.css',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 };

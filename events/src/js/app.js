@@ -1,7 +1,6 @@
-import { filterBy } from './filter';
+import { GameBoard } from '../components/classes/GameBoard'
+import goblin from '../img/goblin.png'
 
-const filterWidgetEl = document.querySelector('[data-widget=filter-widget]');
-const filterBtnEl = filterWidgetEl.querySelector('[data-action=filter]');
-const filterTextEl = filterWidgetEl.querySelector('[data-id=filter-text]')
-
-// TODO: write code here
+// const gameBoard = new GameBoard(document.querySelector('.game-container'), document.querySelector('#scoreboard'));
+const gameBoard = new GameBoard('.game-container', '#scoreboard', goblin);
+gameBoard.renderBoard()
